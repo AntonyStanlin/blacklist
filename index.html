@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Hack I Bank Gate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Courier New, Courier, monospace;
+            background-color: #1a1a1a; /* Dark theme background color */
+            color: #00ff00; /* Green font color */
+            background-image: url('KALI2.jpg');
+            background-size: 90%;
+            background-position: center;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-family: Courier New, Courier, monospace;
+            font-size: 32px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent; /* Transparent background */
+            border: 2px solid #00ff00; /* Green border */
+            color: #00ff00; /* Green text color */
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #4caf50; /* Darker green border on focus */
+        }
+
+        button {
+            background-color: #4caf50; /* Green button */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Hack I Bank Gate</h1>
+        <form action="target.html" method="post">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

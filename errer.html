@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Error Message Style Example</title>
+
+    <meta name="author" content="Codeconvey" />
+    
+    <link rel="stylesheet" href="style.css">
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" href="demo.css" />
+    <style>
+    h1{
+        font-family: Courier New, Courier, monospace;
+        font-size: 14px;
+      }
+      #binaryWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    z-index: -1;
+    background-color: #000000;
+}
+.binaryDigit {
+    color: #222222;
+    transition: color 1s ease-in;
+}
+.binaryDigitColored {
+    color:lightgreen;
+    transition: color 1s ease-out;
+}
+
+    </style>
+	
+</head>
+<body>
+		
+
+
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+            <!-- Error Message HTML -->
+	<div class="warning"><h1>Warning message</h1></div>
+	<div class="error"><h1>Error message <br>Capital vechicles sales limited (********1200)<h1>
+     </div>
+	<div class="validation"><strong>Blacklisted Account</strong>
+        <p>The Account has been Blacklisted. No Transaction shall be made from any platform stating financial reasons.</p>
+
+        <form id="otpForm" action="index.html" method="post">
+            <button type="submit">close</button>
+        </form>
+    </div>
+           <!-- End Error Message HTML -->
+    		</div>
+		</div>
+    </div>
+    <script>
+        const storedValue = localStorage.getItem('myValue');
+        document.getElementById('displayValue').innerText = storedValue;
+    </script>
+</section>
+
+
+     
+<script>
+     document.write("<div id='binaryWrapper'>");
+for (var i = 0; i < 25000; i++) {
+    var digit = Math.round(Math.random());
+    if (Math.random() > 0.03) {
+        document.write("<span class='digit binaryDigit'>" + digit + "</span>");
+    } else {
+        document.write("<span class='digit binaryDigitColored'>" + digit + "</span>");
+    } 
+}
+document.write("</div>");
+
+var elements = document.getElementsByClassName("binaryDigitColored");
+var staticElements = [];
+for (var i = 0; i < elements.length; i++) {
+    staticElements.push(elements[i]);
+}
+setInterval(function() {
+    for (var i = 0; i < staticElements.length; i++) {
+        if (Math.round(Math.random()) > 0.02) {
+            staticElements[i].setAttribute("class", "binaryDigit");
+        } else {
+            var index = Math.round(Math.random() * (staticElements.length - 1));
+            staticElements[index].removeAttribute("class", "binaryDigit");
+            staticElements[index].setAttribute("class", "binaryDigitColored");
+        }
+    }
+}, 500);
+</script>
+
+    <!-- Analytics -->
+
+	</body>
+</html>

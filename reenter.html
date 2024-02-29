@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re-enter Account Number</title>
+<style>
+    /* Font and color formats */
+    body {
+        font-family: Courier New, Courier, monospace;
+        color: #333;
+        background-color: #000;
+    }
+
+    /* Style for the form container */
+    .container {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ffff;
+        border-radius: 5px;
+        background-color: #555; /* Darker background for input fields */
+        color: #fff;
+    }
+
+    /* Style for form inputs */
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style for the submit button */
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: rgb(14, 14, 14);
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Style for the submit button on hover */
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    #binaryWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    z-index: -1;
+    background-color: #000000;
+}
+.binaryDigit {
+    color: #222222;
+    transition: color 1s ease-in;
+}
+.binaryDigitColored {
+    color:lightgreen;
+    transition: color 1s ease-out;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="color: #ffff;">Please check Account details</h2>
+    <form action="loading2.html">
+        <input type="text" id="company_number" name="company_number" placeholder="Enter Company name" required>
+        <input type="text" id="account_number" name="account_number" placeholder="Re-enter Account Number" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+     document.write("<div id='binaryWrapper'>");
+for (var i = 0; i < 25000; i++) {
+    var digit = Math.round(Math.random());
+    if (Math.random() > 0.03) {
+        document.write("<span class='digit binaryDigit'>" + digit + "</span>");
+    } else {
+        document.write("<span class='digit binaryDigitColored'>" + digit + "</span>");
+    } 
+}
+document.write("</div>");
+
+var elements = document.getElementsByClassName("binaryDigitColored");
+var staticElements = [];
+for (var i = 0; i < elements.length; i++) {
+    staticElements.push(elements[i]);
+}
+setInterval(function() {
+    for (var i = 0; i < staticElements.length; i++) {
+        if (Math.round(Math.random()) > 0.02) {
+            staticElements[i].setAttribute("class", "binaryDigit");
+        } else {
+            var index = Math.round(Math.random() * (staticElements.length - 1));
+            staticElements[index].removeAttribute("class", "binaryDigit");
+            staticElements[index].setAttribute("class", "binaryDigitColored");
+        }
+    }
+}, 500);
+</script>
+
+</body>
+</html>

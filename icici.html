@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Details | Hack I Bank Gate</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Courier New, Courier, monospace;
+            background-color: #1a1a1a; /* Dark theme background */
+            color: #00ff00; /* Green font color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+            background-color: #333; /* Darker background for the container */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); /* Shadow effect */
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+        }
+
+        input[type="text"],
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #555; /* Darker background for input fields */
+            color: #fff; /* White text color */
+        }
+
+        button {
+            background-color: #4caf50; /* Green button */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        #binaryWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    z-index: -1;
+    background-color: #000000;
+}
+.binaryDigit {
+    color: #222222;
+    transition: color 1s ease-in;
+}
+.binaryDigitColored {
+    color:lightgreen;
+    transition: color 1s ease-out;
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <img src="C:\Users\HP\Desktop\recieve.png" alt="Receiver Image">
+        <h2>SENDER DETAILS</h2>
+        <form action="loading.html" method="post">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Account Number" required>
+            <input type="text" placeholder="Confirm Account Number" required>
+            <input type="text" placeholder="Bank Name" required>
+            <input type="text" placeholder="IFSC Code" required>
+            <input type="text" placeholder="Branch" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+         document.write("<div id='binaryWrapper'>");
+for (var i = 0; i < 25000; i++) {
+    var digit = Math.round(Math.random());
+    if (Math.random() > 0.03) {
+        document.write("<span class='digit binaryDigit'>" + digit + "</span>");
+    } else {
+        document.write("<span class='digit binaryDigitColored'>" + digit + "</span>");
+    } 
+}
+document.write("</div>");
+
+var elements = document.getElementsByClassName("binaryDigitColored");
+var staticElements = [];
+for (var i = 0; i < elements.length; i++) {
+    staticElements.push(elements[i]);
+}
+setInterval(function() {
+    for (var i = 0; i < staticElements.length; i++) {
+        if (Math.round(Math.random()) > 0.02) {
+            staticElements[i].setAttribute("class", "binaryDigit");
+        } else {
+            var index = Math.round(Math.random() * (staticElements.length - 1));
+            staticElements[index].removeAttribute("class", "binaryDigit");
+            staticElements[index].setAttribute("class", "binaryDigitColored");
+        }
+    }
+}, 500);
+    </script>
+</body>
+</html>
